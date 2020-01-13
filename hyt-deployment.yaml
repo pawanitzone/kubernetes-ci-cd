@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: httpd-web
-          image: pawanitzone/hyt-httpd
+          image: pawanitzone/hyt-http:{{BUILD_NUMBER}}
 
   replicas: 2
   selector:
