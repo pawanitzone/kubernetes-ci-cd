@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+   kubernetes.io/ingress.class: nginx
+  name: httpd-web-ingress
+  namespace: web
+spec:
+  rules:
+    - host: httpd-web-k8s.eng.pvt
+      http:
+        paths:
+           - backend:
+              serviceName: httpd-service
+              servicePort: 9090
+

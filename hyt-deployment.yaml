@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: web
+  labels:
+    app: httpd-web
+    type: frontend
+    location: IN
+    environment: Production
+
+spec:
+  template:
+    metadata:
+      name: httpd-pod
+      namespace: web
+      labels:
+        app: httpd-web
+        type: frontend
+
+    spec:
+      containers:
+        - name: httpd-web
+          image: pawanitzone/hyt-httpd
+
+  replicas: 2
+  selector:
+    matchLabels:
+      type: frontend
+
+
