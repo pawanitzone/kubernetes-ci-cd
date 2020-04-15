@@ -24,7 +24,7 @@ pipeline {
           withKubeConfig([credentialsId: 'credentialsId', 
 	  serverUrl: 'https://192.168.99.100:8443']) {
           sh 'cat hyt-deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" |kubectl apply -f -'
-          sh 'kubectl apply -f hyt-service.yaml'
+          sh 'kubectl apply -f hyt-testing-service.yaml'
         }
       }
   }
