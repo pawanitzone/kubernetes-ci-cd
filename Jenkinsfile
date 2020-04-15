@@ -22,7 +22,7 @@ pipeline {
     stage('Apply Kubernetes Files') {
       steps {
           withKubeConfig([credentialsId: 'credentialsId', 
-	  serverUrl: 'https://172.18.15.23:6443']) {
+	  serverUrl: 'https://192.168.99.100:8443']) {
           sh 'cat hyt-deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" |kubectl apply -f -'
           sh 'kubectl apply -f hyt-service.yaml'
         }
